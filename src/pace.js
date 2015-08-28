@@ -10,6 +10,10 @@
     };
 
     var warehouse = {
+        scope: {
+            app: {},
+            req: {}
+        },
         taglets: {},
         scriptlets: {}
     };
@@ -18,9 +22,18 @@
 
     };
 
+    Pace.parseJSON = function(target) {
+        target = target.replace(/'/g, );
+        return
+    };
+
     var pace = Pace.prototype = {
 
         constructor: Pace,
+
+        init: function(params) {
+
+        },
 
         /**
          * param def could be two types
@@ -70,8 +83,9 @@
 
     };
 
-
-
+    /**
+     * initial taglets and scriptlets
+     */
     (function(pace) {
 
         pace.taglet({
@@ -79,8 +93,22 @@
             compile: function(node, parent) {
 
             }
-        })
+        });
+
+        window.pace = pace;
 
     })(pace);
+
+    /**
+     * let ready to pace
+     */
+    $(function() {
+        var $pace = $('[let-pace]');
+        $pace.hide(function() {
+            $.each($pace.children(), function(i, k) {
+                console.log($(k).children())
+            })
+        });
+    });
 
 })(jQuery);

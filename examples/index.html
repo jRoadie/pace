@@ -7,10 +7,27 @@
     <script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="lib/semantic-ui/semantic.js"></script>
     <script type="text/javascript" src="../src/pace.js"></script>
+    <script type="text/javascript">
+        (function(pace) {
+            pace.init({
+
+            })
+        })(pace)
+    </script>
 </head>
 <body>
-<div pace-app>
-    <h1>${app.title}</h1>
+<div @let-pace>
+    <h1>${title}</h1>
+    <h3>${subtitle}</h3>
+    <ul>
+        <li @for="['Avro', 'Borno', 'Bijoy']" @var="name" @idx="i">${i+1}. ${name}</li>
+    </ul>
+    <ul>
+        <li @for="users" @var="user" @idx="i">${i+1}. ${user.name}</li>
+    </ul>
+    <ul>
+        <li @for="users.name" @var="userName" @idx="i">${i+1}. ${userName}</li>
+    </ul>
 </div>
 </body>
 </html>
