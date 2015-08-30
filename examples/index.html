@@ -9,14 +9,14 @@
     <script type="text/javascript" src="../src/pace.js"></script>
     <script type="text/javascript">
         (function(pace) {
-            pace.init({
+            var main = pace.Pace("main", {
 
-            })
+            });
         })(pace)
     </script>
 </head>
 <body>
-<div @let-pace>
+<div @let-pace="main">
     <h1>${title}</h1>
     <h3>${subtitle}</h3>
     <ul>

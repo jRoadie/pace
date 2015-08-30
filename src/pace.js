@@ -23,7 +23,8 @@
     };
 
     Pace.parseJSON = function(target) {
-        target = target.replace(/'/g, );
+
+        target = target.reverse().replace(/'(?!\\)/g, '"');
         return
     };
 
@@ -75,7 +76,10 @@
     };
 
     var Scriptlet = function(def) {
-
+        this.prototype = {
+            name: def.name,
+            parse: def.parse
+        }
     };
     Scriptlet.prototype = {
 
@@ -91,6 +95,13 @@
         pace.taglet({
             name: 'each',
             compile: function(node, parent) {
+
+            }
+        });
+
+        pace.scriptlet({
+            name: 'list',
+            parse: function () {
 
             }
         });
